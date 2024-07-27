@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'patients',
     'contact_us',
     'appointment',
-    'doctors'
+    'doctors',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
