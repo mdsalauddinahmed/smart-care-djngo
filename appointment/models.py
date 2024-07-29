@@ -20,7 +20,7 @@ class Appointment(models.Model):
     symtoms= models.TextField()
     appointemt_status=models.CharField(choices=APPOINTMENT_STATUS,max_length=100,default='Pending')
     appointment_types = models.CharField(choices=APPOINTMENT_TYPES,max_length=100)
-    time=models.OneToOneField(AvailaleTime,on_delete=models.CASCADE)
+    time=models.ForeignKey(AvailaleTime,on_delete=models.CASCADE)
     cancel = models.BooleanField()
     def __str__(self) -> str:
         return f"Doctor: {self.doctor.user.first_name}; Patient: {self.patient.user.first_name}"
