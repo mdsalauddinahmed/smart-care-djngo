@@ -22,5 +22,10 @@ class Appointment(models.Model):
     appointment_types = models.CharField(choices=APPOINTMENT_TYPES,max_length=100)
     time=models.ForeignKey(AvailaleTime,on_delete=models.CASCADE)
     cancel = models.BooleanField()
+
+    
     def __str__(self) -> str:
         return f"Doctor: {self.doctor.user.first_name}; Patient: {self.patient.user.first_name}"
+    
+
+     
