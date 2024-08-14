@@ -37,3 +37,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
         account.is_active = False
         account.save()
         return account
+
+class userloginSerializer(serializers.ModelSerializer):
+    username=serializers.CharField(required=True)
+    password=serializers.CharField(required=True)
+    class Meta:
+        model = User
+        fields= ['username', 'password']
