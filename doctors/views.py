@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+
 from .import models
 from .import serializer
 
@@ -12,6 +14,7 @@ class DesignationVewSet(viewsets.ModelViewSet):
     serializer_class = serializer.Designationserializer
 
 class AvailaleTimeVewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = models.AvailaleTime.objects.all()
     serializer_class = serializer.AvailaleTimeserializer
 
