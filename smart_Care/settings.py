@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-5zs9(6a(c_+_o75atp@(vdi57uh-3t_+_%ow@96hf)z8$i=r)8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django_filters',
     'django.contrib.staticfiles',
     'rest_framework.authtoken',
     'service',
@@ -58,6 +59,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 ROOT_URLCONF = 'smart_Care.urls'
 
 TEMPLATES = [
