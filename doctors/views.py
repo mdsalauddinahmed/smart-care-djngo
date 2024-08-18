@@ -36,7 +36,9 @@ class DoctorPagination(pagination.PageNumberPagination):
 class  DoctorVewSet(viewsets.ModelViewSet):
     queryset = models.Doctor.objects.all()
     serializer_class = serializer.Doctorserializer
-    pagination_class=DoctorPagination
+    filter_backends = [filters.SearchFilter]
+    pagination_class = DoctorPagination
+    search_fields = ['user__first_name', 'user__email', 'designation__name', 'specialization__name']
 
 class ReviewVewSet(viewsets.ModelViewSet):
     queryset = models.Review.objects.all()
